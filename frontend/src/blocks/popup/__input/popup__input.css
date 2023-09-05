@@ -1,0 +1,29 @@
+.popup__input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21px;
+  color: #000000;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 7px;
+  max-width: 358px;
+  min-height: 30px;
+  outline: none;
+  padding: 0;
+}
+
+.popup__input:nth-child(2) {
+  margin-top: 29px;
+}
+
+/* .popup__input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21px;
+  color: #000000;
+  margin-top: 46px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+} */

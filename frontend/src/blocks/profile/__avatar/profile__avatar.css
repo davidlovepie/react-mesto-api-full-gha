@@ -1,0 +1,36 @@
+.profile__avatar {
+  margin: 0;
+  padding: 0;
+  margin-right: 30px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background: transparent;
+  border: 0;
+ position: relative;
+}
+
+.profile__avatar:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 1;
+  background-image: url(../../../images/pencil.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 27px 27px;
+  cursor: pointer;
+  border-radius: 50%;
+ 
+}
+

@@ -1,0 +1,7 @@
+.elements__like-counter {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: -8px 22px 0px 0px;
+  flex-direction: column;
+}

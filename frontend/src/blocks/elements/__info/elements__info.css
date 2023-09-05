@@ -1,0 +1,8 @@
+.elements__info {
+  margin: 0;
+  padding: 0;
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(0, 0, 0);
+}

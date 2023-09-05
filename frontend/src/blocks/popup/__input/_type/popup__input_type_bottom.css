@@ -1,0 +1,11 @@
+.popup__input_type_bottom{
+  margin: 0px 0px 184px 0px;
+  color:#CCCCCC;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0); 
+}
+
+.popup__input_type_bottom::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #CCCCCC;
+  opacity: 1; /* Firefox */
+}

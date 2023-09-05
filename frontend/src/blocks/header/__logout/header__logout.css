@@ -1,0 +1,16 @@
+.header__logout {
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: right;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  color: #A9A9A9;
+  margin: 47px 6px 0px 0px;
+}
