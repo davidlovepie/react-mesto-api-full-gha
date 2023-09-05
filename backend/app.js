@@ -10,6 +10,7 @@ const validation = require('./middlewares/validation');
 const errorhandler = require('./middlewares/errorhandler');
 const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 app.use(requestLogger); // подключаем логгер запросов
+
+app.use(cors);
 
 app.use('/users', auth, usersRouter);
 
