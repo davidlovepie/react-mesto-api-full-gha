@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
 const express = require('express');
 const errorCelebrate = require('celebrate').errors;
 const mongoose = require('mongoose');
@@ -23,6 +25,12 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.use(cors);
 
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use('/users', auth, usersRouter);
 
 app.use('/cards', auth, cardsRouter);
@@ -30,12 +38,6 @@ app.use('/cards', auth, cardsRouter);
 app.post('/signin', validation.validateSignin, login);
 
 app.post('/signup', validation.validateSignup, createUser);
-
-// app.use((err, req, res, next) => {
-//   console.log(err)
-//   console.log(err.name)
-//   res.send({ message: err.message });
-// });
 
 app.use('/:404', () => {
   throw new NotFoundError('страница не найдена');

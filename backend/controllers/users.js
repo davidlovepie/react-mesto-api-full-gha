@@ -7,6 +7,8 @@ const User = require('../models/user');
 const Unauthorized = require('../errors/Unauthorized');
 const NotFoundError = require('../errors/NotFoundError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const getUsers = (req, res, next) => {
   User.find({})
     .then((data) => {
@@ -16,28 +18,6 @@ const getUsers = (req, res, next) => {
       next(error);
     });
 };
-
-// const getUser = (req, res) => {
-//   const { _id } = req.user;
-//   User.findById({ _id })
-//     .then((data) => {
-//       if (!data) {
-//         throw new Error('404');
-//       }
-//       res.send({ data });
-//     })
-//     .catch((error) => {
-//       if (error.message === '404') {
-//         res.status(404).send({ message: '404 — Пользователь с указанным _id не найден' });
-//       } else if (error.name === 'Error' && _id.length === 24) {
-//         res.status(404).send({ message: '404 — Пользователь с указанным _id не найден' });
-//       } else if (error.name === 'CastError') {
-//   res.status(400).send({ message: '400 — Переданы некорректные данные при обновлении профиля' });
-//       } else {
-//         res.status(500).send({ message: 'Ошибка на сервере' });
-//       }
-//     });
-// };
 
 const createUser = (req, res, next) => {
   const {
@@ -115,12 +95,15 @@ const login = (req, res, next) => {
         });
     })
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret',
+        { expiresIn: '7d' },
+      );
       res
         .cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true })
         .status(200)
         .json({ token });
-    // .end();
     })
     .catch((error) => {
       next(error);
