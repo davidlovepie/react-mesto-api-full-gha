@@ -49,7 +49,7 @@ function Main({
       </section>
       <section className="elements" aria-label="Фотогалерея">
         <ul className="elements__list">
-          {cards.map((card, index) => {
+          {Array.isArray(cards) && cards.map((card, index) => {
             return (
               <Card
                 key={card._id}
