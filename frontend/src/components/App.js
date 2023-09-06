@@ -57,8 +57,8 @@ function App() {
     Promise.all([api.getInitialCards(), api.getProfileInfo()])
       .then(([resultInitial, resultInformation]) => {
 
-        setCurrentUser(resultInformation);
-        setCards(resultInitial);
+        setCurrentUser(resultInformation.data);
+        setCards(resultInitial.data);
         
       })
       .catch((err) => {
@@ -92,7 +92,7 @@ function App() {
         .deleteLike(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+            state.map((c) => (c._id === card._id ? newCard.data : c))
           );
         })
         .catch((err) => {
@@ -105,7 +105,7 @@ function App() {
         .addLike(card._id)
         .then((newCard) => {
           setCards((state) =>
-            state.map((c) => (c._id === card._id ? newCard : c))
+            state.map((c) => (c._id === card._id ? newCard.data : c))
           );
         })
         .catch((err) => {
@@ -121,7 +121,7 @@ function App() {
     api
       .editProfileAvatar(obj)
       .then((result) => {
-        setCurrentUser(result);
+        setCurrentUser(result.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -135,7 +135,7 @@ function App() {
     api
       .editProfileInfo(obj)
       .then((result) => {
-        setCurrentUser(result);
+        setCurrentUser(result.data);
         closeAllPopups();
       })
       .catch((err) => {
@@ -149,7 +149,7 @@ function App() {
     api
       .postCard(obj)
       .then((result) => {
-        setCards([result, ...cards]);
+        setCards([result.data, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {

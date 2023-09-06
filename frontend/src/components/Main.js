@@ -14,9 +14,6 @@ function Main({
   onCardLike,
   onCardDelete,
 }) {
-  // const [userName, setUserName] = useState('');
-  // const [userDescription, setUserDescription] = useState('');
-  // const [userAvatar, setUserAvatar] = useState('');
 
   const currentUser = useContext(CurrentUserContext);
 
