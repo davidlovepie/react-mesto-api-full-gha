@@ -6,6 +6,7 @@ const Unauthorized = require('../errors/Unauthorized');
 const Forbidden = require('../errors/Forbidden');
 
 module.exports = (err, req, res, next) => {
+  console.log(err);
   if (err instanceof CastError || err instanceof ValidationError) {
     return res
       .status(400)
