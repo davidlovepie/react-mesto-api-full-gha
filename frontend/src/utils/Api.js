@@ -116,7 +116,7 @@ class Api {
 export const api = new Api({
   baseUrl: 'https://api.davidthebest.nomoredomainsicu.ru',
   headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
+    authorization: `Bearer ${localStorage.getItem('JWT')}`,
     "Content-Type": "application/json",
   },
 
