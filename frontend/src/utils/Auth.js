@@ -50,9 +50,9 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: "https://auth.nomoreparties.co",
+  baseUrl: "https://api.davidthebest.nomoredomainsicu.ru",
   headers: {
-    authorization: "3ed8239e-8734-4aff-9406-f23bc2058906",
+    // authorization: "3ed8239e-8734-4aff-9406-f23bc2058906",
     "Content-Type": "application/json",
   },
 });
