@@ -19,6 +19,9 @@ function Card({
   const cardLikeButtonClassName = `elements__like-button ${
     isLiked && "elements__like-button_active"
   }`;
+  console.log('card', card);
+  console.log('likes', likes);
+  console.log('currentUser._id', currentUser._id);
 
   function handleClick() {
     onEnlarge();
