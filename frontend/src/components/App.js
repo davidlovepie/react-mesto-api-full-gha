@@ -38,8 +38,6 @@ function App() {
   function initialization() {
     Promise.all([api.getInitialCards(), api.getProfileInfo()])
     .then(([resultInitial, resultInformation]) => {
-      console.log('resultInitial', resultInitial)
-      console.log('resultInformation', resultInformation)
       setCurrentUser(resultInformation.data);
       setCards(resultInitial.data);
       
@@ -52,12 +50,10 @@ function App() {
   function getUserAuth(jwt) {
     const token = jwt || localStorage.getItem("JWT");
     // setToken(jwt || localStorage.getItem("JWT"));
-    console.log('tokenGetUserAuth', token);
     auth
       .getUser(token)
       .then((result) => {
         setEmail(result.data.email);
-        console.log('getUserAuthResult', result);
         setIsLoggedIn(true);
         setCurrentUser(result.data);
         navigate("/");
@@ -101,7 +97,6 @@ function App() {
       api
         .deleteLike(card._id)
         .then((newCard) => {
-          console.log('newCArdDelete', newCard);
           setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard.data : c))
           );
@@ -115,7 +110,6 @@ function App() {
       api
         .addLike(card._id)
         .then((newCard) => {
-          console.log('newCArdAdd', newCard);
           setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard.data : c))
           );
