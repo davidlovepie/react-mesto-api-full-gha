@@ -35,6 +35,20 @@ function App() {
   const [email, setEmail] = useState("");
   // const [token, setToken] = useState(localStorage.getItem("JWT") || "");
 
+  function initialization() {
+    Promise.all([api.getInitialCards(), api.getProfileInfo()])
+    .then(([resultInitial, resultInformation]) => {
+      console.log('resultInitial', resultInitial)
+      console.log('resultInformation', resultInformation)
+      setCurrentUser(resultInformation.data);
+      setCards(resultInitial.data);
+      
+    })
+    .catch((err) => {
+      console.log(err); // выведем ошибку в консоль
+    });
+  }
+
   function getUserAuth(jwt) {
     const token = jwt || localStorage.getItem("JWT");
     // setToken(jwt || localStorage.getItem("JWT"));
@@ -59,17 +73,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    Promise.all([api.getInitialCards(), api.getProfileInfo()])
-      .then(([resultInitial, resultInformation]) => {
-        console.log('resultInitial', resultInitial)
-        console.log('resultInformation', resultInformation)
-        setCurrentUser(resultInformation.data);
-        setCards(resultInitial.data);
-        
-      })
-      .catch((err) => {
-        console.log(err); // выведем ошибку в консоль
-      });
+    initialization();
   }, []);
 
   function handleCardDelete() {
@@ -202,6 +206,7 @@ function App() {
         getUserAuth(result.token);
         navigate("/");
         setEmail(obj.email);
+        initialization();
       })
       .catch((err) => {
         console.log(err); // выведем ошибку в консоль
