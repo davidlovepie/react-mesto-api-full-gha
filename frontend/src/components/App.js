@@ -34,8 +34,9 @@ function App() {
   const [infoTooltipStatus, setInfoTooltipStatus] = useState("");
   const [email, setEmail] = useState("");
 
-  function getUserAuth() {
-    const token = localStorage.getItem("JWT");
+  function getUserAuth(jwt) {
+    const token = jwt || localStorage.getItem("JWT");
+    console.log('tokenGetUserAuth', token);
     auth
       .getUser(token)
       .then((result) => {
@@ -195,7 +196,7 @@ function App() {
       .then((result) => {
         localStorage.setItem("JWT", result.token);
         setIsLoggedIn(true);
-        getUserAuth();
+        getUserAuth(result.token);
         navigate("/");
         setEmail(obj.email);
       })
