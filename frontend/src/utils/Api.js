@@ -75,7 +75,10 @@ class Api {
     console.log('headers', this.headers);
    return fetch(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this.headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('JWT')}`,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({name, about})
     })
 
