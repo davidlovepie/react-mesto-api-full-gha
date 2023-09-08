@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.72.189
+IP-адрес <158.160.72.189>
 
 Frontend https://davidthebest.nomoredomainsicu.ru
 
