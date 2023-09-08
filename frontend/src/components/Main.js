@@ -71,21 +71,3 @@ function Main({
 
 export default Main;
 
-// const array1 = [
-//   { name: "name", id: 1 },
-//   { name: "name", id: 3 },
-//   { name: "name", id: 2 },
-//   { name: "surname", id: 1 },
-//   { name: "name", id: 3 },
-//   { name: "name", id: 2 },
-// ];
-
-// const array2 = array1.filter((item) => {
-
-//   return item.id === 1
-
-// }
-
-// );
-
-// console.log('array2', array2)

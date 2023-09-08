@@ -40,6 +40,7 @@ function App() {
       .getUser(token)
       .then((result) => {
         setEmail(result.data.email);
+        console.log('getUserAuthResult', result);
         setIsLoggedIn(true);
         navigate("/");
         
@@ -56,7 +57,8 @@ function App() {
   useEffect(() => {
     Promise.all([api.getInitialCards(), api.getProfileInfo()])
       .then(([resultInitial, resultInformation]) => {
-
+        console.log('resultInitial', resultInitial)
+        console.log('resultInformation', resultInformation)
         setCurrentUser(resultInformation.data);
         setCards(resultInitial.data);
         
