@@ -101,6 +101,7 @@ function App() {
       api
         .deleteLike(card._id)
         .then((newCard) => {
+          console.log('newCArdDelete', newCard);
           setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard.data : c))
           );
@@ -114,6 +115,7 @@ function App() {
       api
         .addLike(card._id)
         .then((newCard) => {
+          console.log('newCArdAdd', newCard);
           setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard.data : c))
           );
