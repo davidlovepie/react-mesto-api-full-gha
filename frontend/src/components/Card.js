@@ -22,8 +22,9 @@ function Card({
 
 
   function handleClick() {
-    onEnlarge();
     selectedCard({ link:card.link, card:card.name });
+    onEnlarge();
+    
   }
 
   function handleDeleteClick(e) {
