@@ -43,6 +43,7 @@ function App() {
         setEmail(result.data.email);
         console.log('getUserAuthResult', result);
         setIsLoggedIn(true);
+        setCurrentUser(result.data);
         navigate("/");
         
       })
