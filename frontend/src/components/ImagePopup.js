@@ -1,6 +1,4 @@
 function ImagePopup({ src, alt, isOpen, onClose }) {
-  console.log('src', src)
-  console.log('alt', alt)
   return (
     <div className={`popup popup_type_enlarge ${isOpen && "popup_opened"}`}>
       <div className="popup__container popup__container_type_enlarge">

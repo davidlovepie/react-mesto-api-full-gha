@@ -254,13 +254,6 @@ function App() {
           ></Route>
         </Routes>
 
-        <ImagePopup
-          src={selectedCard.link}
-          alt={selectedCard.name}
-          isOpen={isEnlargeImagePopupOpen}
-          onClose={closeAllPopups}
-        />
-
         <EditProfilePopup
           onUpdateUser={handleUpdateUser}
           isOpen={isEditProfilePopupOpen}
@@ -289,6 +282,13 @@ function App() {
           isOpen={isStatusImagePopupOpen}
           onClose={closeAllPopups}
           status={infoTooltipStatus}
+        />
+
+        <ImagePopup
+          src={selectedCard.link}
+          alt={selectedCard.name}
+          isOpen={isEnlargeImagePopupOpen}
+          onClose={closeAllPopups}
         />
       </div>
     </CurrentUserContext.Provider>

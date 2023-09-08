@@ -26,7 +26,7 @@ function Card({
     selectedCard({ link:card.link, card:card.name });
   }
 
-  function handleDeleteClick(card) {
+  function handleDeleteClick(e) {
 
     selectedCard(card);
 
