@@ -14,8 +14,8 @@ function Card({
   onDelete,
 }) {
   const currentUser = useContext(CurrentUserContext);
-  const isOwn = cardOwner === currentUser._id;
-  const isLiked = likes.some((i) => i._id === currentUser._id);
+  const isOwn = card.owner === currentUser._id;
+  const isLiked = card.likes.some((i) => i._id === currentUser._id);
   const cardLikeButtonClassName = `elements__like-button ${
     isLiked && "elements__like-button_active"
   }`;
@@ -26,7 +26,7 @@ function Card({
 
   function handleClick() {
     onEnlarge();
-    selectedCard({ link, name });
+    selectedCard({ link:card.link, card:card.name });
   }
 
   function handleDeleteClick(e) {
@@ -49,18 +49,18 @@ function Card({
       <img
         className="elements__image"
         onClick={handleClick}
-        src={link}
-        alt={name}
+        src={card.link}
+        alt={card.name}
       />
       <div className="elements__info">
-        <h2 className="elements__title">{name}</h2>
+        <h2 className="elements__title">{card.name}</h2>
         <div className="elements__like-counter">
           <button
             type="button"
             className={cardLikeButtonClassName}
             onClick={handleLikeClick}
           ></button>
-          <div className="elements__counter">{likes.length}</div>
+          <div className="elements__counter">{card.likes.length}</div>
         </div>
       </div>
     </li>
