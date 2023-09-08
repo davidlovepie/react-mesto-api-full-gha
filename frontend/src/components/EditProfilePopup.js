@@ -67,7 +67,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
           value={description || ""}
         />
         <span className="popup__input-error about-error"></span>
-        {/* <button className="popup__submit" type="submit">Сохранить</button> */}
       </fieldset>
     </PopupWithForm>
   );

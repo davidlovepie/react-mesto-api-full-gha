@@ -72,7 +72,7 @@ class Api {
 
 
   editProfileInfo({ name, about }) {
-
+    console.log('headers', this.headers);
    return fetch(`${this.baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this.headers,
