@@ -33,9 +33,11 @@ function App() {
   const navigate = useNavigate();
   const [infoTooltipStatus, setInfoTooltipStatus] = useState("");
   const [email, setEmail] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("JWT") || "");
 
   function getUserAuth(jwt) {
     const token = jwt || localStorage.getItem("JWT");
+    setToken(jwt || localStorage.getItem("JWT"));
     console.log('tokenGetUserAuth', token);
     auth
       .getUser(token)
@@ -68,10 +70,10 @@ function App() {
       .catch((err) => {
         console.log(err); // выведем ошибку в консоль
       });
-  }, []);
+  }, [token]);
 
   function handleCardDelete() {
-    // console.log('CARDS1', cards)
+
     api
       .deleteCard(selectedCard._id)
       .then((deletedCard) => {
